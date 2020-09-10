@@ -53,6 +53,6 @@
 
 ---
 
-Thanks for reading!
+Thanks a lot for reading!
 
 [My Github Page](https://github.com/beckoning-phoenix)
