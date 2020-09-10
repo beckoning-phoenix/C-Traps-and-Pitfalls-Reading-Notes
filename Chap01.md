@@ -9,11 +9,8 @@
 
 - lexical analyzer
   - the part of a compiler that breaks a program up into tokens 
-- 
 
 ---
-
-<br/>
 
 ## 2. Key Points about Lexical Pitfalls
 
