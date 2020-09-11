@@ -18,7 +18,7 @@
 
 2. & and | are not && and ||
 
-3. Greedy (Maximal Munch) Lexical analysis strategy
+3. Greedy (Maximal Munch) Lexical Analysis Strategy
    - "repeatedly bite off the biggest possible piece"
    - ```a---b``` means ```a-- -b``` 
    - ```y = x/*p``` , ```y = x / *p``` , ```y = x / (*p)``` mean:
@@ -34,7 +34,7 @@
 
 ---
 
-## 3. Key points in Exercises 
+## 3. Key Points in Exercises 
 
 - 1-1. A program that can judge whether the compliler supports nested comment or not
     ```
