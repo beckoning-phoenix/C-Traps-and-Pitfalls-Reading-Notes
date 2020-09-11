@@ -20,6 +20,6 @@
 3. Watch the Semicolons
    - After an if or while clause
    - At the end of a declaration just before a function definition
-
+   - 
 4. The Switch Statement
    
