@@ -23,8 +23,6 @@
      | ?:                                 | right         |
      | assignments                        | right         |
      | ,                                  | left          |
-     |                                    |               |
-
 
 ---
 
@@ -77,7 +75,8 @@
 
 - 2-1. the aim of permitting an extra comma in an initializer list in C is to make it more convenient for the using of automatic tools like editors.
 
-- 2-2. Other ways of separating statements in other languages(like Fortran, Snobol, Shell, Awk, Ratfor,...) (P.s. In fact, it has nothing to do with the KEY Point of this book, just read it for fun :-) )
+- 2-2. Other ways of separating statements in other languages(like Fortran, Snobol, Shell, Awk, Ratfor,...
+。/ ) (P.s. In fact, it has nothing to do with the KEY Point of this book, just read it for fun :-) )
 
 ---
 
