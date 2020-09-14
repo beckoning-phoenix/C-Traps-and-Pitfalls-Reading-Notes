@@ -4,13 +4,28 @@
 
 ## 1. Terminologies 
 
+---
+
 ## 2. Key Points about Semantic Pitfalls
 
 1. Pointers and arrays
-
+   - Two things  stand out about C arrays
+      1. C has only one-dimensional arrays, and an element of an array may be an object of any type
+      2. Only two things can be done to an array: determine its size and obtain a pointer to element 0 of the array 
+   - Array name operator
+     ```
+     \\ Consider the following two-dimensional  array:
+     int calendar[12][31];
+     ```
+     the name calendar could be:
+     1. used as the operand of sizeof: 12 x 31 x sizeof(int) = 371 x sizeof(int)
+     2. used in any other context: a pointer to the initial element of calendar
+   - Adding an integer to a pointer is generally DIFFERENT from adding that integer to the bit representation of that pointer!!!
+     - If ip points to an integer, ip+ 1 points to the next integer in the machine's memory, which, for most modern computers, is not the next memory location.
+   - ß 
 2. Pointers that are not arrays
 
-3. Array declarations as parameters
+3. Array declarations as parameters 
 
 4. Eschew synecdoche
 
