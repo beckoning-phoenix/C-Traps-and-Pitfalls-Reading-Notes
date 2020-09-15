@@ -21,8 +21,15 @@
      1. used as the operand of sizeof: 12 x 31 x sizeof(int) = 371 x sizeof(int)
      2. used in any other context: a pointer to the initial element of calendar
    - Adding an integer to a pointer is generally DIFFERENT from adding that integer to the bit representation of that pointer!!!
-     - If ip points to an integer, ip+ 1 points to the next integer in the machine's memory, which, for most modern computers, is not the next memory location.
-   - ß 
+     
+     If ip points to an integer, ip+1 points to the next integer in the machine's memory, which, for most modern computers, is not the next memory location.
+        - ```
+          int *q =p + i;
+          printf(q-p) \\ which means i 
+          ```
+        - If p and q don't point to the  elements of an array, there is no way to guarantee q-p is i even that the distance between p and q is an integral multiple of an array element!
+   - In most earlier versions of C, there is no notion of the address of an array - &a is either illegal or equivalent to a.
+   -  
 2. Pointers that are not arrays
 
 3. Array declarations as parameters 
