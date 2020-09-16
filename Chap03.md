@@ -23,9 +23,12 @@
         - If p and q don't point to the  elements of an array, there is no way to guarantee q-p is i even that the distance between p and q is an integral multiple of an array element!
    - a, *a, &a
      - a: the address of element 0 of a except the sizeof operand(the size of the whole array instead of only one element)
-     - *a: 
+     - *a:  a reference to element 0 of a, as *(a+i) is equivalent to a[i] , i[a] and *(i+a)
      - &a: In most earlier versions of C, there is no notion of the address of an array - &a is either illegal or equivalent to a.
-   -  
+   - two-dimensional arrays
+     - 
+     - 
+     - 
 2. Pointers that are not arrays
 
 3. Array declarations as parameters 
