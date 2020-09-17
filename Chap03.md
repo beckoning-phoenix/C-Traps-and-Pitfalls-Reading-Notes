@@ -18,20 +18,74 @@
      If ip points to an integer, ip+1 points to the next integer in the machine's memory, which, for most modern computers, is not the next memory location.
         - ```
           int *q =p + i;
-          printf(q-p) \\ which means i 
+          printf(q - p); // which means i 
           ```
         - If p and q don't point to the  elements of an array, there is no way to guarantee q-p is i even that the distance between p and q is an integral multiple of an array element!
    - a, *a, &a
      - a: the address of element 0 of a except the sizeof operand(the size of the whole array instead of only one element)
      - *a:  a reference to element 0 of a, as *(a+i) is equivalent to a[i] , i[a] and *(i+a)
      - &a: In most earlier versions of C, there is no notion of the address of an array - &a is either illegal or equivalent to a.
-   - two-dimensional arrays
-     - 
-     - 
-     - 
-2. Pointers that are not arrays
+   - Two-dimensional arrays
+     - the pointer to an array
+       ```
+       int calendar[12][31]; 
+       int (*monthp)[31];    // the pointer to an array
+       monthp = calendar;
+       ```
+     - the relationship between pointers and arrays(summary):
+       ```
+       int (*monthp)[31];
+       for(monthp = calendar; monthp < &calendar[12]; monthp++){
+           int *dayp;
+           for(dayp = *monthp; dayp < &(*month)[31]; dayp++)
+                *dayp = 0;
+       }
+       ```
+2. Four examples in using char arrays 
+   1. ```
+      char *r;    // wrong, because the memory of r is not allocated 
+      strcpy(r, s);
+      strcat(r, t);
+      ```
+   2. ```
+      char r[100]; // right, allocating memory for r, but the memory should be constant and may be not big enough. 
+      strcpy(r, s); 
+      strcat(r, t);
+      ```
+   3. ```
+      char *r, *malloc();
+      r = malloc(strlen(s) + strlen(t));
+      strcpy(r, s);
+      strcat(r, t);
+      // wrong ,because:
+      //(1) malloc may fail, returning a null pointer
+      //(2) allocates memory explicitly and must therefore free it explicitly
+      //(3) r requires memory of n+1 characters instead of n;
+      ```
+   4. ```
+      char *r, *malloc();
+      r = malloc(strlen(s) + strlen(t) + 1);
+      if(!r) {
+          complain();
+          exit();
+      }
+      strcpy(r, s);
+      strcat(r, t);
 
+      /* some time later */
+      free(r);
+      // right
+      ```
 3. Array declarations as parameters 
+   1. In some occasions, C will automatically converts an array declaration to the corresponding pointer decalaration
+   ```
+   int strlen(char s[]){}
+   int strlen(char *s){}  // totally the same
+
+   printf("%s\n, hello");
+   printf("%s\n, &hello[0]"); // totally the same
+   ```
+   2. But in other occasions, C will not automatically do such  
 
 4. Eschew synecdoche
 
