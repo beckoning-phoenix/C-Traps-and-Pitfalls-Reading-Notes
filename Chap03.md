@@ -4,6 +4,8 @@
 
 ## 1. Terminologies 
 
+   - synecdoche
+     - a more comprehensive term is used for less comprehensive or vice versa; as whole for part or part for whole, genus for species or species for genus, etc.
 ---
 
 ## 2. Key Points about Semantic Pitfalls
@@ -78,16 +80,31 @@
       ```
 3. Array declarations as parameters 
    1. In some occasions, C will automatically converts an array declaration to the corresponding pointer decalaration
-   ```
-   int strlen(char s[]){}
-   int strlen(char *s){}  // totally the same
+      ```
+      int strlen(char s[]){}
+      int strlen(char *s){}  // totally the same
+   
+      printf("%s\n, hello");
+      printf("%s\n, &hello[0]"); // totally the same
+   
+      main(int argc, int *argv[])
+      main(int argc, int **argv)  // totally the same
+      ```
 
-   printf("%s\n, hello");
-   printf("%s\n, &hello[0]"); // totally the same
-   ```
-   2. But in other occasions, C will not automatically do such  
+   2. But in other occasions, C will not automatically do such convertion:
+      ```
+      extern char *hello;
+      extern char hello[];
+      ```
 
 4. Eschew synecdoche
+   - Copying a pointer does not copy the thing it adresses. 
+     char *p, *q;
+     p = "xyz";
+     q = p;
+     q[1] = 'Y';
+     printf(p); //xYz, p and q actually point to the same memory.   
+     ```
 
 5. Null pointers are not null strings
 
