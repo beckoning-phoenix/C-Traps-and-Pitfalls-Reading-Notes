@@ -107,8 +107,14 @@
      ```
 
 5. Null pointers are not null strings
+   - Don't ask what is in the memory the null pointer addresses
+     ```
+     if (p == (char *) 0) ... //valid
+     if (strcmp(p, (char *) 0) == 0) //not valid
+     ```
 
 6. Counting and asymmetric bounds
+   - 
 
 7. Order of evaluation
 
