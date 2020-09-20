@@ -61,7 +61,7 @@
 
 ## 3. Key Points in Exercises
 
-   4-1. a program to judge whether the machine is litt-endian or big-endian:
+   - 4-1. a program to judge whether the machine is litt-endian or big-endian:
         ```
         extern short n;
         ```
@@ -72,10 +72,8 @@
         ```
         if n (short type) is 37, then it should be little-endian; if n is 0, then it should be big-endian.
 
-   4-2. Some C implementations have two versions of printf, one of which implements the floating-point format items %e, %f, and %g and the other of which does not.
-
-        In some systems, the programmer must explicitly tell the linker whether floating-point arithmetic is being used. Others try to decide automatically by having the compiler tell the linker if it sees any floating-point operations in the program.
-
+   - 4-2. Some C implementations have two versions of printf, one of which implements the floating-point format items %e, %f, and %g and the other of which does not.
+     In some systems, the programmer must explicitly tell the linker whether floating-point arithmetic is being used. Others try to decide automatically by having the compiler tell the linker if it sees any floating-point operations in the program.
 ---
 
 Thanks a lot for reading!

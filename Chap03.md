@@ -207,19 +207,19 @@
 - 3-2. (omitted)
 
 - 3-3. Binary search algorithm using assymetric bounds rule
-       ```
-       int * bsearch(int *t, int n, int x){
-          int l = 0; r = n;
-          while （l < r)
-          {
-             int mid = (l + r) / 2;
-             if (x < t[mid]) r = mid;
-             else if (x > t[mid]) l = mid + 1;
-             else return t + mid;
-          }
-          return NULL;
-       }
-       ```
+  ```
+  int * bsearch(int *t, int n, int x){
+     int l = 0; r = n;
+     while （l < r)
+     {
+        int mid = (l + r) / 2;
+        if (x < t[mid]) r = mid;
+        else if (x > t[mid]) l = mid + 1;
+        else return t + mid;
+     }
+     return NULL;
+  }
+  ```
 
 ---
 
