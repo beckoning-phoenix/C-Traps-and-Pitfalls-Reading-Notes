@@ -42,7 +42,7 @@
 3. Watch the Semicolons
    - After an if or while clause
    - At the end of a declaration just before a function definition
-   - 
+   
 4. The Switch Statement
    - Bug or feature? be careful of leaving out a break statement
 
@@ -73,7 +73,7 @@
 
 ## 3. Key Points in Exercises 
 
-- 2-1. the aim of permitting an extra comma in an initializer list in C is to make it more convenient for the using of automatic tools like editors.
+- 2-1. The aim of permitting an extra comma in an initializer list in C is to make it more convenient for the using of automatic tools like editors.
 
 - 2-2. Other ways of separating statements in other languages(like Fortran, Snobol, Shell, Awk, Ratfor,...
 。/ ) (P.s. In fact, it has nothing to do with the KEY Point of this book, just read it for fun :-) )
