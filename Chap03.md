@@ -43,6 +43,7 @@
                 *dayp = 0;
        }
        ```
+
 2. Four examples in using char arrays 
    1. ```
       char *r;    // wrong, because the memory of r is not allocated 
@@ -78,6 +79,7 @@
       free(r);
       // right
       ```
+
 3. Array declarations as parameters 
    1. In some occasions, C will automatically converts an array declaration to the corresponding pointer decalaration
       ```
@@ -90,7 +92,6 @@
       main(int argc, int *argv[])
       main(int argc, int **argv)  // totally the same
       ```
-
    2. But in other occasions, C will not automatically do such convertion:
       ```
       extern char *hello;
@@ -114,25 +115,111 @@
      ```
 
 6. Counting and asymmetric bounds
-   - 
+   - Off-by-one error (avoid such error by using asymmetric bounds)
+     ```
+     int a[10], i;
+     for (int i = 0; i < 10; i++) a[i] = 0; \\ instead of i <= 9
+     ```
+   - Using asymmetric bounds in dealing with buffers of various sorts
+     ```
+     #define N 1024
+     static char buffer[N];
+     static char *bufptr;
+     *bufptr++ = c;       //put a character c into the buffer
+     bufptr = &buffer[0]; //initially say the buffer is empty
+     bufptr = buffer;     //initially say the buffer is empty
+     ``` 
+   - Using asymmetric bounds to write out a buffer-load
+     ```
+     void
+     bufwrite(char *p, int n)
+     {
+        while(--n >= 0)
+        {
+           if(bufptr == &buffer[N]) flushbuffer(); 
+           /*
+           the address of the nonexistent element just past the end of an array may be taken and used for assignment and comparison purposes. But it is illegal actually to refer to that element!
+           */
+
+           *bufptr++ = *p++;
+        }
+     }
+     ``` 
+   - Using memcpy function to accelerate the buffer-load function
+     ```
+     void 
+     bufwrite(char *p, int n)
+     {
+        while(n > 0)
+        {
+           if(bufptr == &buffer[N]) flushbuffer();
+           int k, rem;
+           rem = N - (bufptr - buffer);
+           k = n > rem? rem: n;
+           memcpy(bufptr, p ,k);
+           bufptr += k;
+           p += k;
+           n -= k;
+        }
+     }
+     ```
 
 7. Order of evaluation
+   - The order of evaluation of the operand
+     - &&, ||   : lvalue first
+     - a < b    : a or b frist or even parallel
+     - g(x, y)  : x or y first or even parallel
+     - g((x,y)) : x first and discarded and then y
+   - An incorrect instance
+     ```
+     i = 0;
+     while(i < n)
+     {
+        y[i] = x[i++];
+        \*
+        *There is no guarantee that the address of y[i] will be evaluated before i is incremented. On some implementations, it will; but on others, it won't.
+        *\
+     }
+     ```
 
 8. The &&, || and ! operators
+   - The difference between && and & (also, || and |)
 
 9. Integer Overflow
+   - Two ways of avoiding integer overflow
+     1. ```
+        if((unsigned)a + (unsigned)b > INT_MAX) complain(); \\INT_MAX is defined in <limits.h> in ANSI C standard.
+        ```
+     2. ```
+        if(a > INT_MAX - b) complain(); \\recommended
+        ```
 
 10. Returning a value from main
+    - Like any onther function, main is presumed to yield an int value if no other return type is declared for it.
+    - 0 return indicates success and any other value indicates failure
 
 ---
 
 ## 3. Key Points in Exercises
 
-- 3-1.
+- 3-1. A bufwrite function breaking the asymmetric bounds rule.
 
-- 3-2.
+- 3-2. (omitted)
 
-- 3-3.
+- 3-3. Binary search algorithm using assymetric bounds rule
+       ```
+       int * bsearch(int *t, int n, int x){
+          int l = 0; r = n;
+          while （l < r)
+          {
+             int mid = (l + r) / 2;
+             if (x < t[mid]) r = mid;
+             else if (x > t[mid]) l = mid + 1;
+             else return t + mid;
+          }
+          return NULL;
+       }
+       ```
 
 ---
 
