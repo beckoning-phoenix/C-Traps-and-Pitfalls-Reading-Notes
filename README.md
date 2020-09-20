@@ -4,7 +4,7 @@
 
 Hello! It's beckoning-phoenix here!
 
-This repo is my reading notes of C_Traps_and_Pitfalls by Andrew Koenig.
+This repo is my reading notes of C Traps and Pitfalls by Andrew Koenig.
 
 If it helped you, star this repo pleaaaaase!!
 
