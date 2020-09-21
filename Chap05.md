@@ -3,7 +3,7 @@
 </br>
 
 ## 1. Terminologies
-   - 
+   - None
 
 ---
 
