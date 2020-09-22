@@ -4,7 +4,7 @@
 
 ## 1. Terminologies
 
-   - 
+   - None
 
 ---
 
